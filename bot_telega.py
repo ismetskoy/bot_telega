@@ -2,7 +2,6 @@
 import random
 # Подключаем модуль для Телеграма
 import telebot
-import psycopg2
 # Указываем токен
 bot = telebot.TeleBot('5755251840:AAFnnRMIamisPkuoyqxJCzI23M7lLdibbcY')
 # Импортируем типы из модуля, чтобы создавать кнопки
