@@ -1,8 +1,6 @@
-import random
-import telebot
-bot = telebot.TeleBot('5755251840:AAFnnRMIamisPkuoyqxJCzI23M7lLdibbcY')
+import telebot , random 
 from telebot import types
-from dbconnection import *
+bot = telebot.TeleBot('')
 
 first = ["Сегодня — идеальный день для новых начинаний.","Оптимальный день для того, чтобы решиться на смелый поступок!","Будьте осторожны, сегодня звёзды могут повлиять на ваше финансовое состояние.","Лучшее время для того, чтобы начать новые отношения или разобраться со старыми.","Плодотворный день для того, чтобы разобраться с накопившимися делами."]
 second = ["Но помните, что даже в этом случае нужно не забывать про","Если поедете за город, заранее подумайте про","Те, кто сегодня нацелен выполнить множество дел, должны помнить про","Если у вас упадок сил, обратите внимание на","Помните, что мысли материальны, а значит вам в течение дня нужно постоянно думать про"]
@@ -17,7 +15,7 @@ def get_text_messages(message):
         bot.send_message(message.from_user.id, "Привет, сейчас я расскажу тебе гороскоп на сегодня.")
         
         keyboard = types.InlineKeyboardMarkup()
-       
+        
         key_oven = types.InlineKeyboardButton(text='Овен', callback_data='zodiac')
         
         keyboard.add(key_oven)
@@ -56,7 +54,7 @@ def callback_worker(call):
     if call.data == "zodiac": 
         
         msg = random.choice(first) + ' ' + random.choice(second) + ' ' + random.choice(second_add) + ' ' + random.choice(third)
-       
+
         bot.send_message(call.message.chat.id, msg)
 
 bot.polling(none_stop=True, interval=0)
