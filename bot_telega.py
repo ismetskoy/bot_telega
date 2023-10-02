@@ -17,7 +17,6 @@ def get_text_messages(message):
         keyboard = types.InlineKeyboardMarkup()
         
         key_oven = types.InlineKeyboardButton(text='Овен', callback_data='zodiac')
-        
         keyboard.add(key_oven)
         key_telec = types.InlineKeyboardButton(text='Телец', callback_data='zodiac')
         keyboard.add(key_telec)
